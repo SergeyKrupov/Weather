@@ -1,0 +1,38 @@
+[
+    {
+        "id": 511196,
+        "name": "Perm",
+        "country": "RU",
+        "coord": {
+            "lon": 56.285519,
+            "lat": 58.01741
+        }
+    },
+    {
+        "id": 536203,
+        "name": "Sankt-Peterburg",
+        "country": "RU",
+        "coord": {
+            "lon": 30.25,
+            "lat": 59.916668
+        }
+    },
+    {
+        "id": 524901,
+        "name": "Moscow",
+        "country": "RU",
+        "coord": {
+            "lon": 37.615555,
+            "lat": 55.75222
+        }
+    },
+    {
+        "id": 491422,
+        "name": "Sochi",
+        "country": "RU",
+        "coord": {
+            "lon": 39.730278,
+            "lat": 43.599998
+        }
+    }
+]
