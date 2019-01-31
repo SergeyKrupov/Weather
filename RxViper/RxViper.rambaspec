@@ -1,8 +1,8 @@
 # Template information section
-name: "viperSwiftRx"
+name: "RxViper"
 summary: "ViperModule with Swinject & RxSwift"
 author: "Sergey V. Krupov"
-version: "0.1.2"
+version: "0.1"
 license: "MIT"
 
 # The declarations for code files
