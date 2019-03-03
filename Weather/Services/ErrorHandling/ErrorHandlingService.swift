@@ -15,7 +15,14 @@ protocol ErrorHandlingService {
     var retryTrigger: RetryTrigger { get }
 }
 
-final class ErrorHandlingComponent: ErrorHandlingService {
+protocol ErrorResolvingService {
+
+    var currentError: Observable<Error?> { get }
+
+    func resolveCurrentError()
+}
+
+final class ErrorHandlingComponent: ErrorHandlingService, ErrorResolvingService {
 
     var retryTrigger: RetryTrigger {
         return { errors -> Observable<Void> in
@@ -23,5 +30,13 @@ final class ErrorHandlingComponent: ErrorHandlingService {
                 Observable.just(()).delay(1, scheduler: MainScheduler.instance)
             }
         }
+    }
+
+    var currentError: Observable<Error?> {
+        return .never()
+    }
+
+    func resolveCurrentError() {
+        
     }
 }

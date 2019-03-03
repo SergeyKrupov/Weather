@@ -11,8 +11,16 @@ import Swinject
 final class ErrorHandlingServiceAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(ErrorHandlingService.self) { _ in
+        container.register(ErrorHandlingComponent.self) { _ in
             ErrorHandlingComponent()
+        }
+
+        container.register(ErrorHandlingService.self) { resolver in
+            resolver.resolve(ErrorHandlingComponent.self)!
+        }
+
+        container.register(ErrorResolvingService.self) { resolver in
+            resolver.resolve(ErrorHandlingComponent.self)!
         }
     }
 }
