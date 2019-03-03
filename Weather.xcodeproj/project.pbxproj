@@ -51,6 +51,8 @@
 		A503FF262202D32D003C15CA /* CityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A503FF252202D32D003C15CA /* CityItem.swift */; };
 		A503FF282202D47C003C15CA /* CitiesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A503FF272202D47C003C15CA /* CitiesSection.swift */; };
 		A503FF2B2202FB72003C15CA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A503FF2A2202FB72003C15CA /* Utils.swift */; };
+		A564DC20222BDC5D005E4C90 /* ErrorHandlingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564DC1F222BDC5D005E4C90 /* ErrorHandlingService.swift */; };
+		A564DC22222BDC7A005E4C90 /* ErrorHandlingServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564DC21222BDC7A005E4C90 /* ErrorHandlingServiceAssembly.swift */; };
 		A5A5E1FF21FF033500A2059E /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5E1FE21FF033500A2059E /* SwinjectStoryboard+Setup.swift */; };
 		A5A5E20221FF19B300A2059E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5E20121FF19B300A2059E /* R.generated.swift */; };
 		A5A5E20721FF1AF300A2059E /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5E20621FF1AF300A2059E /* WeatherService.swift */; };
@@ -134,6 +136,8 @@
 		A503FF252202D32D003C15CA /* CityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityItem.swift; sourceTree = "<group>"; };
 		A503FF272202D47C003C15CA /* CitiesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesSection.swift; sourceTree = "<group>"; };
 		A503FF2A2202FB72003C15CA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A564DC1F222BDC5D005E4C90 /* ErrorHandlingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingService.swift; sourceTree = "<group>"; };
+		A564DC21222BDC7A005E4C90 /* ErrorHandlingServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingServiceAssembly.swift; sourceTree = "<group>"; };
 		A5A5E1FE21FF033500A2059E /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		A5A5E20121FF19B300A2059E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A5A5E20621FF1AF300A2059E /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
@@ -417,9 +421,19 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		A564DC1E222BDC2B005E4C90 /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				A564DC1F222BDC5D005E4C90 /* ErrorHandlingService.swift */,
+				A564DC21222BDC7A005E4C90 /* ErrorHandlingServiceAssembly.swift */,
+			);
+			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
 		A5A5E20321FF1A5F00A2059E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A564DC1E222BDC2B005E4C90 /* ErrorHandling */,
 				A503FF0422007C1E003C15CA /* Settings */,
 				A5A5E20521FF1AC000A2059E /* Weather */,
 				A5A5E20421FF1A8400A2059E /* Network */,
@@ -839,6 +853,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A564DC20222BDC5D005E4C90 /* ErrorHandlingService.swift in Sources */,
 				A503FF0D22007FCF003C15CA /* SettingsServiceAssembly.swift in Sources */,
 				A5EE267921FED57C00618447 /* AppDelegate.swift in Sources */,
 				A5A5E20C21FF241400A2059E /* Weather.swift in Sources */,
@@ -891,6 +906,7 @@
 				898B3286578E6B18088D3308 /* SettingsViewProtocol.swift in Sources */,
 				970195C8D54BD4946B0DF592 /* SettingsModuleInput.swift in Sources */,
 				A09304581BE7E8B9D0C6698A /* SettingsPresenter.swift in Sources */,
+				A564DC22222BDC7A005E4C90 /* ErrorHandlingServiceAssembly.swift in Sources */,
 				C4D0A5E098AF865E28D0EB6F /* SettingsPresenterProtocol.swift in Sources */,
 				88F146F7F1ED02E31C450B57 /* SettingsInteractorProtocol.swift in Sources */,
 				793B2B42A883F924AE7C2FC8 /* SettingsInteractor.swift in Sources */,
