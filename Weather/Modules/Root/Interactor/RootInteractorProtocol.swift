@@ -11,4 +11,9 @@ import RxSwift
 
 protocol RootInteractorProtocol: class {
 
+    var currentError: Driver<Error?> { get }
+
+    func ignoreError()
+
+    func retryRequest()
 }

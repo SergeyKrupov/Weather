@@ -24,6 +24,9 @@ final class RootPresenter {
 extension RootPresenter: RootPresenterProtocol {
 
     func setupBindings(_ view: RootViewProtocol) {
+        interactor.currentError
+            
+
     }
 }
 

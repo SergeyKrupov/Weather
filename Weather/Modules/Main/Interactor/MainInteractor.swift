@@ -17,7 +17,7 @@ final class MainInteractor: MainInteractorProtocol {
     var errorHandlingService: ErrorHandlingService!
 
     // MARK: - MainInteractorProtocol
-    lazy var weather: Driver<Weather> = {
+    private(set) lazy var weather: Driver<Weather> = {
         let refreshObservable = refreshSubject.startWith(())
         return Observable.combineLatest(refreshObservable, settingsService.currentCity) { $1 }
             .flatMapLatest { [service = self.weatherService!] city in service.obtainWeather(for: city) }
@@ -26,7 +26,7 @@ final class MainInteractor: MainInteractorProtocol {
             .asDriver(onErrorDriveWith: .empty())
     } ()
 
-    lazy var city: Driver<String?> = {
+    private(set) lazy var city: Driver<String?> = {
         return settingsService.currentCity
             .retryWhen(errorHandlingService.retryTrigger)
             .catchError { _ in .empty() }

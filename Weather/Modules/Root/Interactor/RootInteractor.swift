@@ -12,6 +12,19 @@ import RxSwift
 final class RootInteractor: RootInteractorProtocol {
 
     // MARK: - Dependencies
+    var errorResolvingService: ErrorResolvingService!
 
     // MARK: - RootInteractorProtocol
+    private(set) lazy var currentError: Driver<Error?> = {
+        return errorResolvingService.currentError
+            .asDriver(onErrorJustReturn: nil)
+    } ()
+
+    func ignoreError() {
+        errorResolvingService.ignoreError()
+    }
+
+    func retryRequest() {
+        errorResolvingService.retryRequest()
+    }
 }

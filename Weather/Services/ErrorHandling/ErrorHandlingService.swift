@@ -19,7 +19,9 @@ protocol ErrorResolvingService {
 
     var currentError: Observable<Error?> { get }
 
-    func resolveCurrentError()
+    func ignoreError()
+
+    func retryRequest()
 }
 
 final class ErrorHandlingComponent: ErrorHandlingService, ErrorResolvingService {
@@ -36,7 +38,9 @@ final class ErrorHandlingComponent: ErrorHandlingService, ErrorResolvingService 
         return .never()
     }
 
-    func resolveCurrentError() {
-        
+    func ignoreError() {
+    }
+
+    func retryRequest() {
     }
 }
