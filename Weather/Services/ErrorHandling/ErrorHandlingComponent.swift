@@ -17,9 +17,16 @@ final class ErrorHandlingComponent: ErrorHandlingService, ErrorResolvingService 
     }
 
     var retryTrigger: RetryTrigger {
-        return { errors -> Observable<Void> in
-            errors.flatMap { self.enqueueError($0).andThen(self.waitResolution(for: $0)) }
-                .map { _ in }
+        return { errors in
+            errors.flatMap { error in
+                self.enqueueError(error)
+                    .andThen(self.waitResolution(for: error))
+                    .map { ($0, error) }
+            }
+            .flatMap { tuple -> Observable<Void> in
+                let (resolution, error) = tuple
+                return resolution == .pass ? .error(error) : .just(())
+            }
         }
     }
 
@@ -84,25 +91,20 @@ final class ErrorHandlingComponent: ErrorHandlingService, ErrorResolvingService 
     private func enqueueError(_ error: Error) -> Completable {
         return Completable.create { [stateSubject] observer -> Disposable in
             let state = (try? stateSubject.value()) ?? .noErrors
-            let nextState: State?
 
             let holder = ErrorHolder(error: error)
             switch state {
             case .noErrors:
-                nextState = .processing(error: holder, queued: [])
+                stateSubject.onNext(.processing(error: holder, queued: []))
             case let .processing(error: current, queued: queued):
                 let allErrors = [current] + queued
                 if !allErrors.contains(holder) {
-                    nextState = .processing(error: current, queued: queued + [holder])
+                    stateSubject.onNext(.processing(error: current, queued: queued + [holder]))
                 }
             case let .resolved(error: processed, resolution: resolution, queued: queued):
                 if !queued.contains(holder) {
-                    nextState = .resolved(error: processed, resolution: resolution, queued: queued + [holder])
+                    stateSubject.onNext(.resolved(error: processed, resolution: resolution, queued: queued + [holder]))
                 }
-            }
-
-            if let nextState = nextState {
-                stateSubject.onNext(nextState)
             }
 
             observer(.completed)

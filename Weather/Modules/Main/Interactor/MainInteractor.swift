@@ -20,9 +20,12 @@ final class MainInteractor: MainInteractorProtocol {
     private(set) lazy var weather: Driver<Weather> = {
         let refreshObservable = refreshSubject.startWith(())
         return Observable.combineLatest(refreshObservable, settingsService.currentCity) { $1 }
-            .flatMapLatest { [service = self.weatherService!] city in service.obtainWeather(for: city) }
-            .retryWhen(errorHandlingService.retryTrigger)
-            .catchError { _ in .empty() }
+            .flatMapLatest { [service = self.weatherService!, retryTrigger = errorHandlingService.retryTrigger] city in
+                service.obtainWeather(for: city)
+                    .asObservable()
+                    .retryWhen(retryTrigger)
+                    .catchError { _ in .empty() }
+            }
             .asDriver(onErrorDriveWith: .empty())
     } ()
 

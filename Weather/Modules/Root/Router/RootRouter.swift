@@ -26,6 +26,9 @@ final class RootRouter: RootRouterProtocol {
             alert.addAction(UIAlertAction(title: "Повторить", style: .default) { _ in
                 action(.success(true))
             })
+            alert.addAction(UIAlertAction(title: "Пропустить", style: .default) { _ in
+                action(.success(false))
+            })
 
             viewController.present(alert, animated: true, completion: nil)
             return Disposables.create() // FIXME

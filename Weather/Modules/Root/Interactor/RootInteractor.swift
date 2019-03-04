@@ -15,16 +15,8 @@ final class RootInteractor: RootInteractorProtocol {
     var errorResolvingService: ErrorResolvingService!
 
     // MARK: - RootInteractorProtocol
-    private(set) lazy var currentError: Driver<Error?> = {
-        return errorResolvingService.currentError
+    private(set) lazy var currentError: Driver<(Error, ErrorResolver)?> = {
+        return errorResolvingService.errors
             .asDriver(onErrorJustReturn: nil)
     } ()
-
-    func ignoreError() {
-        errorResolvingService.ignoreError()
-    }
-
-    func retryRequest() {
-        errorResolvingService.retryRequest()
-    }
 }
