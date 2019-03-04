@@ -6,8 +6,8 @@
 //  Copyright © 2019 Home. All rights reserved.
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
 final class RootRouter: RootRouterProtocol {
 
@@ -21,13 +21,14 @@ final class RootRouter: RootRouterProtocol {
                 return Disposables.create()
             }
 
+            //TODO: Localizable
             let alert = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Повторить", style: .default) { _ in
                 action(.success(true))
             })
 
             viewController.present(alert, animated: true, completion: nil)
-            return Disposables.create()
+            return Disposables.create() // FIXME
         }
         .subscribeOn(MainScheduler.instance)
     }

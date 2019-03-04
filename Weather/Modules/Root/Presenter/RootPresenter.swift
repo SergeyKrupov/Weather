@@ -25,8 +25,24 @@ extension RootPresenter: RootPresenterProtocol {
 
     func setupBindings(_ view: RootViewProtocol) {
         interactor.currentError
-            
-
+            .asObservable()
+            .flatMap { [router = router!] error -> Observable<Bool> in
+                guard let error = error else {
+                    return .empty()
+                }
+                return router
+                    .presentError(error)
+                    .asObservable()
+            }
+            .subscribeOn(MainScheduler.asyncInstance) // ???
+            .subscribe(onNext: { [interactor = interactor!] needsRetry in
+                if needsRetry {
+                    interactor.retryRequest() /// FIXME: Binder
+                } else {
+                    interactor.ignoreError()
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 
