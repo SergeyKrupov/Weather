@@ -21,17 +21,24 @@ final class RootRouter: RootRouterProtocol {
                 return Disposables.create()
             }
 
-            //TODO: Localizable
-            let alert = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Повторить", style: .default) { _ in
+            let alert = UIAlertController(title: R.string.localizable.alert_title_error(),
+                                          message: error.localizedDescription,
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: R.string.localizable.alert_button_retry(), style: .default) { _ in
                 action(.success(true))
             })
-            alert.addAction(UIAlertAction(title: "Пропустить", style: .default) { _ in
+            alert.addAction(UIAlertAction(title: R.string.localizable.alert_button_skip(), style: .default) { _ in
                 action(.success(false))
             })
 
             viewController.present(alert, animated: true, completion: nil)
-            return Disposables.create() // FIXME
+            return Disposables.create { [weak alert] in
+                DispatchQueue.main.async {
+                    if let viewController = alert?.presentingViewController {
+                        viewController.dismiss(animated: true)
+                    }
+                }
+            }
         }
         .subscribeOn(MainScheduler.instance)
     }

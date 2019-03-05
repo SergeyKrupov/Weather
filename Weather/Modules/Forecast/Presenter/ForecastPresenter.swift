@@ -27,6 +27,7 @@ extension ForecastPresenter: ForecastPresenterProtocol {
 
     func setupBindings(_ view: ForecastViewProtocol) {
         interactor.forecast
+            .flatMap { Driver.from(optional: $0.value) }
             .map { weathers -> [WeatherItem] in
                 weathers.map {
                     WeatherItem(

@@ -11,7 +11,7 @@ import RxSwift
 
 protocol MainInteractorProtocol: class {
 
-    var weather: Driver<Weather> { get }
+    var weather: Driver<Result<Weather>> { get }
     var city: Driver<String?> { get }
 
     func refresh()

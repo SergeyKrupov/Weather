@@ -64,6 +64,8 @@
 		A5A5E21021FF2F0000A2059E /* NetworkServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5E20F21FF2F0000A2059E /* NetworkServiceAssembly.swift */; };
 		A5A5E21221FF302B00A2059E /* WeatherServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5E21121FF302B00A2059E /* WeatherServiceAssembly.swift */; };
 		A5BA73CD220022E00099641D /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA73CC220022E00099641D /* MainPresenterProtocol.swift */; };
+		A5ED653B222E3BF40079301A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ED653A222E3BF30079301A /* Result.swift */; };
+		A5ED653E222E43130079301A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5ED653D222E43130079301A /* Localizable.strings */; };
 		A5EE267921FED57C00618447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EE267821FED57C00618447 /* AppDelegate.swift */; };
 		A5EE267E21FED57C00618447 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EE267C21FED57C00618447 /* Main.storyboard */; };
 		A5EE268021FED57E00618447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5EE267F21FED57E00618447 /* Assets.xcassets */; };
@@ -151,6 +153,8 @@
 		A5A5E20F21FF2F0000A2059E /* NetworkServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAssembly.swift; sourceTree = "<group>"; };
 		A5A5E21121FF302B00A2059E /* WeatherServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceAssembly.swift; sourceTree = "<group>"; };
 		A5BA73CC220022E00099641D /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
+		A5ED653A222E3BF30079301A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A5ED653D222E43130079301A /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A5EE267521FED57C00618447 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EE267821FED57C00618447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5EE267D21FED57C00618447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -376,8 +380,12 @@
 		A503FF0722007DB8003C15CA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A5EE268421FED57E00618447 /* Info.plist */,
 				A503394B22034D8200659545 /* Cities.json */,
+				A5EE267F21FED57E00618447 /* Assets.xcassets */,
 				A503FF142201A034003C15CA /* Icons.xcassets */,
+				A5EE268121FED57E00618447 /* LaunchScreen.storyboard */,
+				A5ED653D222E43130079301A /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -421,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				A503FF2A2202FB72003C15CA /* Utils.swift */,
+				A5ED653A222E3BF30079301A /* Result.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -499,11 +508,8 @@
 		A5EE267721FED57C00618447 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				A5EE268421FED57E00618447 /* Info.plist */,
 				A5EE267821FED57C00618447 /* AppDelegate.swift */,
 				A5A5E1FE21FF033500A2059E /* SwinjectStoryboard+Setup.swift */,
-				A5EE267F21FED57E00618447 /* Assets.xcassets */,
-				A5EE268121FED57E00618447 /* LaunchScreen.storyboard */,
 				A5A5E20A21FF1E2500A2059E /* Models */,
 				A757766E748B4349679D37A0 /* Modules */,
 				A503FF0722007DB8003C15CA /* Resources */,
@@ -713,6 +719,7 @@
 			files = (
 				A503FF0F220166EE003C15CA /* Root.storyboard in Resources */,
 				A503FF1122016882003C15CA /* Forecast.storyboard in Resources */,
+				A5ED653E222E43130079301A /* Localizable.strings in Resources */,
 				A503394C22034D8200659545 /* Cities.json in Resources */,
 				A503FF232202D2D6003C15CA /* SettingsCityCell.xib in Resources */,
 				A5EE268321FED57E00618447 /* LaunchScreen.storyboard in Resources */,
@@ -877,6 +884,7 @@
 				A5A5E20721FF1AF300A2059E /* WeatherService.swift in Sources */,
 				CA4755BDA0CB30CA0B1FE240 /* MainInteractor.swift in Sources */,
 				A5A5E1FF21FF033500A2059E /* SwinjectStoryboard+Setup.swift in Sources */,
+				A5ED653B222E3BF40079301A /* Result.swift in Sources */,
 				A503FF262202D32D003C15CA /* CityItem.swift in Sources */,
 				A5A5E21021FF2F0000A2059E /* NetworkServiceAssembly.swift in Sources */,
 				A5A5E20E21FF2A2200A2059E /* ApiResponses.swift in Sources */,
@@ -1084,7 +1092,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_FILE = Weather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1102,7 +1110,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_FILE = Weather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

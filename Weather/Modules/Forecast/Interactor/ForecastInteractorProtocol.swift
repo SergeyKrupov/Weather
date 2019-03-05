@@ -11,7 +11,7 @@ import RxSwift
 
 protocol ForecastInteractorProtocol: class {
 
-    var forecast: Driver<[Weather]> { get }
+    var forecast: Driver<Result<[Weather]>> { get }
 
     func refresh()
 }

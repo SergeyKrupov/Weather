@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Sergey V. Krupov on 05.03.2019.
+  Copyright © 2019 Sergey V. Krupov. All rights reserved.
+*/
+
+"alert_title_error" = "Ошибка";
+"alert_button_retry" = "Повторить";
+"alert_button_skip" = "Пропустить";

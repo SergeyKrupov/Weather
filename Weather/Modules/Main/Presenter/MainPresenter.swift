@@ -32,18 +32,21 @@ extension MainPresenter: MainPresenterProtocol {
             .disposed(by: disposeBag)
 
         interactor.weather
+            .flatMap { Driver.from(optional: $0.value) }
             .map { Utils.temperatureFormatter.string(from: $0.temperature as NSNumber) }
             .startWith("--")
             .drive(view.temperature)
             .disposed(by: disposeBag)
 
         interactor.weather
+            .flatMap { Driver.from(optional: $0.value) }
             .map { UIImage(named: $0.icon) ?? R.image.undefined() }
             .startWith(R.image.undefined())
             .drive(view.weatherImage)
             .disposed(by: disposeBag)
 
         interactor.weather
+            .flatMap { Driver.from(optional: $0.value) }
             .map { $0.description as String? }
             .startWith(nil)
             .drive(view.weatherDescription)
