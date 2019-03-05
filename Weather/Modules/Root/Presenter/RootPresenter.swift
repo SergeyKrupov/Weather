@@ -24,6 +24,22 @@ final class RootPresenter {
 extension RootPresenter: RootPresenterProtocol {
 
     func setupBindings(_ view: RootViewProtocol) {
+        interactor.currentError
+            .asObservable()
+            .flatMap { [router = router!] tuple -> Observable<(Bool, ErrorResolver, Error)> in
+                guard let (error, resolver) = tuple else {
+                    return .empty()
+                }
+                return router
+                    .presentError(error)
+                    .map { ($0, resolver, error) }
+                    .asObservable()
+            }
+            .subscribe(onNext: { tuple in
+                let (needsRetry, resolver, error) = tuple
+                resolver(error, needsRetry ? .retry : .pass)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

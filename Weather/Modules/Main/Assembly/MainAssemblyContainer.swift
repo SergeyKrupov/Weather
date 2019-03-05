@@ -16,6 +16,7 @@ final class MainAssemblyContainer: Assembly {
             let interactor = MainInteractor()
             interactor.weatherService = resolver.resolve(WeatherService.self)!
             interactor.settingsService = resolver.resolve(SettingsService.self)!
+            interactor.errorHandlingService = resolver.resolve(ErrorHandlingService.self)!
 			return interactor
 		}
 

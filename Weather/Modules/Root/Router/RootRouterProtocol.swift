@@ -6,8 +6,12 @@
 //  Copyright © 2019 Home. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+import UIKit
 
 protocol RootRouterProtocol: class {
 
+    var viewController: UIViewController? { get set }
+
+    func presentError(_ error: Error) -> Single<Bool>
 }

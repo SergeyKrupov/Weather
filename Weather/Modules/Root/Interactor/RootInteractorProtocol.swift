@@ -11,4 +11,5 @@ import RxSwift
 
 protocol RootInteractorProtocol: class {
 
+    var currentError: Driver<(Error, ErrorResolver)?> { get }
 }

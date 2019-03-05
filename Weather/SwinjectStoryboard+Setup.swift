@@ -20,5 +20,6 @@ extension SwinjectStoryboard {
         WeatherServiceAssembly().assemble(container: defaultContainer)
         NetworkServiceAssembly().assemble(container: defaultContainer)
         SettingsServiceAssembly().assemble(container: defaultContainer)
+        ErrorHandlingServiceAssembly().assemble(container: defaultContainer)
     }
 }

@@ -12,8 +12,9 @@ import SwinjectStoryboard
 final class RootAssemblyContainer: Assembly {
 
     func assemble(container: Container) {
-        container.register(RootInteractorProtocol.self) { _ in
+        container.register(RootInteractorProtocol.self) { resolver in
             let interactor = RootInteractor()
+            interactor.errorResolvingService = resolver.resolve(ErrorResolvingService.self)!
             return interactor
         }
 
@@ -37,6 +38,7 @@ final class RootAssemblyContainer: Assembly {
             let settings = R.storyboard.settings.settingsViewController()!
             viewController.pages = [main, forecast, settings]
             viewController.setPresenter(presenter)
+            presenter.router.viewController = viewController
         }
     }
 }

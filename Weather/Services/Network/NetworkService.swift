@@ -43,7 +43,6 @@ final class NetworkComponent: NetworkService {
                     let payload = try JSONDecoder().decode(T.self, from: data)
                     singleAction(.success(payload))
                 } catch {
-                    assertionFailure()
                     singleAction(.error(error))
                 }
             }
