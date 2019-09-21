@@ -16,12 +16,12 @@ enum Utils {
         formatter.minimumFractionDigits = 1
         formatter.minimumIntegerDigits = 1
         return formatter
-    } ()
+    }()
 
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
         dateFormatter.dateFormat = "HH:mm, dd MMMM"
         return dateFormatter
-    } ()
+    }()
 }

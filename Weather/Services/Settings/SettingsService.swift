@@ -46,7 +46,7 @@ final class SettingsComponent: SettingsService {
                 }
             }
             .share(replay: 1, scope: .forever)
-    } ()
+    }()
 
     var currentCity: Observable<City> {
         return Observable.combineLatest(allCities.asObservable(), selectedСityID.asObserver())

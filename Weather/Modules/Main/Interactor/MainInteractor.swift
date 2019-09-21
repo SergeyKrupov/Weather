@@ -28,7 +28,7 @@ final class MainInteractor: MainInteractorProtocol {
                     .catchError { error in .just(.failure(error)) }
             }
             .asDriver(onErrorDriveWith: .empty())
-    } ()
+    }()
 
     private(set) lazy var city: Driver<String?> = {
         return settingsService.currentCity
@@ -36,7 +36,7 @@ final class MainInteractor: MainInteractorProtocol {
             .catchError { _ in .empty() }
             .asDriver(onErrorDriveWith: .empty())
             .map { $0.name }
-    } ()
+    }()
 
     func refresh() {
         refreshSubject.onNext(())

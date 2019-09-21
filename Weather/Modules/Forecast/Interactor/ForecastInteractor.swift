@@ -27,7 +27,7 @@ final class ForecastInteractor: ForecastInteractorProtocol {
                     .catchError { .just(.failure($0)) }
             }
             .asDriver(onErrorDriveWith: .empty())
-    } ()
+    }()
 
     func refresh() {
         refreshSubject.onNext(())

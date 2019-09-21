@@ -18,12 +18,12 @@ final class SettingsInteractor: SettingsInteractorProtocol {
     lazy var cities: Driver<[City]> = {
         settingsService.allCities
             .asDriver(onErrorDriveWith: .empty())
-    } ()
+    }()
 
     lazy var selectedCity: Driver<City> = {
         settingsService.currentCity
             .asDriver(onErrorDriveWith: .empty())
-    } ()
+    }()
 
     var selectedCityIDSink: Binder<Int> {
         return Binder(self) { this, identifier in
