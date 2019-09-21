@@ -10,7 +10,7 @@ target 'Weather' do
   pod 'RxDataSources'
   pod 'R.swift', '~> 5.0.0'
   pod 'Swinject', '~> 2.6.2'
-  pod 'SwinjectStoryboard', '~> 2.1.0'
+  pod 'SwinjectStoryboard', '~> 2.2.0'
   pod 'Alamofire', '~> 4.8.2'
   pod 'SwiftLint'
 

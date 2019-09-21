@@ -16,8 +16,8 @@ PODS:
   - RxSwift (5.0.0)
   - SwiftLint (0.35.0)
   - Swinject (2.6.2)
-  - SwinjectStoryboard (2.1.0):
-    - Swinject (~> 2.5)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.6)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
@@ -27,7 +27,7 @@ DEPENDENCIES:
   - RxSwift (~> 5.0.0)
   - SwiftLint
   - Swinject (~> 2.6.2)
-  - SwinjectStoryboard (~> 2.1.0)
+  - SwinjectStoryboard (~> 2.2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -54,8 +54,8 @@ SPEC CHECKSUMS:
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
-  SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
+  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
 
-PODFILE CHECKSUM: 4183189221d8ccd33745ac968c9c5b487bc61975
+PODFILE CHECKSUM: 53712157d5fb4055aa0f42a2d1d2111eed2a6cd7
 
 COCOAPODS: 1.7.5
