@@ -18,5 +18,5 @@ final class RootInteractor: RootInteractorProtocol {
     private(set) lazy var currentError: Driver<(Error, ErrorResolver)?> = {
         return errorResolvingService.errors
             .asDriver(onErrorJustReturn: nil)
-    } ()
+    }()
 }
